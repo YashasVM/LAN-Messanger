@@ -1,73 +1,77 @@
-# React + TypeScript + Vite
+# LAN Chat
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A lightweight, modern messaging app for communicating with PCs on the same local network.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **LAN Peer Discovery**: Automatically discovers other LAN Chat users on your network using UDP broadcast
+- **Real-time Messaging**: Send and receive messages instantly over TCP
+- **File Sharing**: Share files of any type with other users
+- **Emoji Support**: Built-in emoji picker for expressive messages
+- **Native Notifications**: Get notified when new messages arrive (Windows)
+- **Fully Resizable**: Resize from a small widget to full screen
+- **Lightweight**: Built with Tauri for minimal resource usage (~10MB)
 
-## React Compiler
+## Screenshots
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The app features a clean, modern UI with red/black/white color scheme inspired by contemporary design principles.
 
-## Expanding the ESLint configuration
+## Building for Windows
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- [Node.js](https://nodejs.org/) v18 or later
+- [Rust](https://www.rust-lang.org/tools/install) (latest stable)
+- Windows 10/11
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Build Steps
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clone the repository:
+```bash
+git clone https://github.com/YashasVM/LAN-Messanger.git
+cd LAN-Messanger
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Install dependencies:
+```bash
+npm install
 ```
+
+3. Build the app:
+```bash
+npm run tauri build
+```
+
+The Windows executable will be generated in:
+- `src-tauri/target/release/bundle/nsis/` (NSIS installer)
+- `src-tauri/target/release/bundle/msi/` (MSI installer)
+
+### Development
+
+Run in development mode:
+```bash
+npm run tauri dev
+```
+
+## How It Works
+
+1. **Peer Discovery**: The app broadcasts its presence on the local network every 3 seconds using UDP
+2. **Connection**: When you select a peer, messages are sent via TCP for reliable delivery
+3. **File Transfer**: Files are base64-encoded and sent through the same TCP channel
+4. **Notifications**: Windows native notifications alert you to new messages
+
+## Tech Stack
+
+- **Frontend**: React + TypeScript + Vite
+- **Backend**: Rust + Tauri
+- **Styling**: Custom CSS with CSS variables
+- **Networking**: UDP for discovery, TCP for messaging
+
+## Requirements
+
+- Both devices must be on the same local network
+- Firewall must allow UDP port 45677 (discovery) and TCP port 45678 (messaging)
+
+## License
+
+MIT
