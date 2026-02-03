@@ -90,5 +90,5 @@ MIT
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/YashasVM">@Yashas.VM</a>
+  Made by <a href="https://github.com/YashasVM">@Yashas.VM</a>
 </p>
