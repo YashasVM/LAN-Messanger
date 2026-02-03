@@ -170,9 +170,12 @@ function App() {
           <span className="logo-icon"></span>
           <span className="logo-text">LAN Chat</span>
         </div>
-        <div className="user-info">
-          <span className="user-name">{myName}</span>
-          <span className="user-status">Online</span>
+        <div className="header-right">
+          <span className="made-by">Made by @Yashas.VM</span>
+          <div className="user-info">
+            <span className="user-name">{myName}</span>
+            <span className="user-status">Online</span>
+          </div>
         </div>
       </header>
 

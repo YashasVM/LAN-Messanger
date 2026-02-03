@@ -2,76 +2,75 @@
 
 A lightweight, modern messaging app for communicating with PCs on the same local network.
 
+## Download
+
+### Windows
+
+Download the latest version from the [Releases](https://github.com/YashasVM/LAN-Messanger/releases) page:
+
+- **LAN-Chat_x.x.x_x64-setup.exe** - Windows installer (recommended)
+- **LAN-Chat_x.x.x_x64_en-US.msi** - MSI installer
+
+Simply download, run the installer, and you're ready to go!
+
 ## Features
 
-- **LAN Peer Discovery**: Automatically discovers other LAN Chat users on your network using UDP broadcast
-- **Real-time Messaging**: Send and receive messages instantly over TCP
-- **File Sharing**: Share files of any type with other users
-- **Emoji Support**: Built-in emoji picker for expressive messages
-- **Native Notifications**: Get notified when new messages arrive (Windows)
-- **Fully Resizable**: Resize from a small widget to full screen
-- **Lightweight**: Built with Tauri for minimal resource usage (~10MB)
+- **Auto-Discovery** - Automatically finds other LAN Chat users on your network
+- **Instant Messaging** - Send and receive messages in real-time
+- **File Sharing** - Share any file with other users
+- **Emoji Support** - Built-in emoji picker
+- **Notifications** - Get notified when new messages arrive
+- **Fully Resizable** - From a small widget to full screen
+- **Lightweight** - Only ~10MB, uses minimal resources
 
-## Screenshots
+## How to Use
 
-The app features a clean, modern UI with red/black/white color scheme inspired by contemporary design principles.
-
-## Building for Windows
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/) v18 or later
-- [Rust](https://www.rust-lang.org/tools/install) (latest stable)
-- Windows 10/11
-
-### Build Steps
-
-1. Clone the repository:
-```bash
-git clone https://github.com/YashasVM/LAN-Messanger.git
-cd LAN-Messanger
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Build the app:
-```bash
-npm run tauri build
-```
-
-The Windows executable will be generated in:
-- `src-tauri/target/release/bundle/nsis/` (NSIS installer)
-- `src-tauri/target/release/bundle/msi/` (MSI installer)
-
-### Development
-
-Run in development mode:
-```bash
-npm run tauri dev
-```
-
-## How It Works
-
-1. **Peer Discovery**: The app broadcasts its presence on the local network every 3 seconds using UDP
-2. **Connection**: When you select a peer, messages are sent via TCP for reliable delivery
-3. **File Transfer**: Files are base64-encoded and sent through the same TCP channel
-4. **Notifications**: Windows native notifications alert you to new messages
-
-## Tech Stack
-
-- **Frontend**: React + TypeScript + Vite
-- **Backend**: Rust + Tauri
-- **Styling**: Custom CSS with CSS variables
-- **Networking**: UDP for discovery, TCP for messaging
+1. Download and install LAN Chat on all PCs you want to connect
+2. Make sure all PCs are on the same local network (WiFi or Ethernet)
+3. Open LAN Chat - it will automatically find other users
+4. Click on a contact to start chatting!
 
 ## Requirements
 
-- Both devices must be on the same local network
-- Firewall must allow UDP port 45677 (discovery) and TCP port 45678 (messaging)
+- Windows 10 or Windows 11
+- All devices must be on the same local network
+- Firewall must allow:
+  - UDP port 45677 (for discovery)
+  - TCP port 45678 (for messaging)
+
+## Screenshots
+
+The app features a clean, modern UI with red/black/white color scheme.
+
+## For Developers
+
+If you want to build from source:
+
+```bash
+# Clone the repository
+git clone https://github.com/YashasVM/LAN-Messanger.git
+cd LAN-Messanger
+
+# Install dependencies
+npm install
+
+# Run in development mode
+npm run tauri dev
+
+# Build for production
+npm run tauri build
+```
+
+### Prerequisites for Building
+
+- Node.js v18+
+- Rust (latest stable)
+- Windows 10/11 SDK
 
 ## License
 
 MIT
+
+---
+
+Made by [@Yashas.VM](https://github.com/YashasVM)
