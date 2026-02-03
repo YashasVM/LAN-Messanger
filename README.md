@@ -2,16 +2,23 @@
 
 A lightweight, modern messaging app for communicating with PCs on the same local network.
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Platform-Windows-blue?style=for-the-badge&logo=windows" alt="Windows">
+  <img src="https://img.shields.io/badge/Size-~10MB-green?style=for-the-badge" alt="Size">
+  <img src="https://img.shields.io/github/v/release/YashasVM/LAN-Messanger?style=for-the-badge&label=Version" alt="Version">
+</p>
+
 ## Download
 
-### Windows
+<p align="center">
+  <a href="https://github.com/YashasVM/LAN-Messanger/releases/latest">
+    <img src="https://img.shields.io/badge/Download-Windows%20Installer-E53935?style=for-the-badge&logo=windows&logoColor=white" alt="Download for Windows">
+  </a>
+</p>
 
-Download the latest version from the [Releases](https://github.com/YashasVM/LAN-Messanger/releases) page:
+**[Click here to download the latest version](https://github.com/YashasVM/LAN-Messanger/releases/latest)**
 
-- **LAN-Chat_x.x.x_x64-setup.exe** - Windows installer (recommended)
-- **LAN-Chat_x.x.x_x64_en-US.msi** - MSI installer
-
-Simply download, run the installer, and you're ready to go!
+Simply download the `.exe` installer, run it, and you're ready to go!
 
 ## Features
 
@@ -42,9 +49,14 @@ Simply download, run the installer, and you're ready to go!
 
 The app features a clean, modern UI with red/black/white color scheme.
 
+---
+
 ## For Developers
 
-If you want to build from source:
+<details>
+<summary>Click to expand build instructions</summary>
+
+### Building from Source
 
 ```bash
 # Clone the repository
@@ -61,11 +73,15 @@ npm run tauri dev
 npm run tauri build
 ```
 
-### Prerequisites for Building
+### Prerequisites
 
 - Node.js v18+
 - Rust (latest stable)
 - Windows 10/11 SDK
+
+</details>
+
+---
 
 ## License
 
@@ -73,4 +89,6 @@ MIT
 
 ---
 
-Made by [@Yashas.VM](https://github.com/YashasVM)
+<p align="center">
+  Made with ❤️ by <a href="https://github.com/YashasVM">@Yashas.VM</a>
+</p>
